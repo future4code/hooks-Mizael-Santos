@@ -1,0 +1,7 @@
+ Os 7 passos fundamentais são (Ter Atenção no Enunciado , Retirar informações relevantes , Pensar Entradas e Saídas , Fazer um esquema Visual , Criar Código feio , Testar Força-Bruta  e Refatorar.
+
+ Devemos garantir uma boa atenção no enunciado , devemos prestar atenção nas palavras chaves , devemos desde o inicio pensar em entradas e saidas , esse pensar quer dizer em fazermos testes antes de concluir o código , devmos fazer um esquema visual , como anotar passo a passo , devemos fazer um código mesmo que ele seja feio , quando esse código estiver funcionando ai , sim devemos pensar em deixar ele bonito, devemos refatorar o nosso código por ultimo.
+
+ Os 7 passos na pratica , ao ler o anuncio , devemos nos perguntar "o que o código deve fazer ?  , quais as informações são chaves para o código ? " , vamos separar palavras chaves , criar funções ,  ver se há alguma condição existente no código , vamos ver como e quais dados serão recebidos , quais as possiveis respostas , vamos criar exemplos , montar diagramas , colocar inputs e outputs , não devemos ter medo , escolher as melhores soluções e testar  ,  devemos também escrever o código em nosso idioma e por ultimo refatorar o código , dá boms nomes para as variaveis e funções , separar  a funções.
+
+ Dicas de exercicios para treinar , pode ser no HackerRank e no URI.

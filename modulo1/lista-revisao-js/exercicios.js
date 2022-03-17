@@ -178,5 +178,16 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+    return consultas.sort((a, b) => {
+
+        if((a.dataDaConsulta).split('/').reverse().join('-') < (b.dataDaConsulta).split('/').reverse().join('-')){
+            return -1
+        }
+        if((a.dataDaConsulta).split('/').reverse().join('-') > (b.dataDaConsulta).split('/').reverse().join('-')){
+            return +1
+        }else{
+            return 0
+        }
+   })
+
 }

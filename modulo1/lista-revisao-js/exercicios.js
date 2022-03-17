@@ -25,10 +25,15 @@ function retornaNumerosPares(array) {
 
 }
 
-
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-    
+    let numerosParesElevadosADois = [];
+    for (let item of array ){
+        if (item % 2 === 0){
+            numerosParesElevadosADois.push(item ** 2)
+        }
+    }
+    return numerosParesElevadosADois
 }
 
 

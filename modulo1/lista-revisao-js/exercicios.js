@@ -140,7 +140,14 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
+    const altura = 1.5;
+    const idadeMinima = 14;
+    const idadeMaxima = 60;
  
+    let pessoasNaoAutorizar = pessoas.filter((item) => {
+        return item.altura < altura || item.idade <= idadeMinima || item.idade > idadeMaxima;
+    })
+    return pessoasNaoAutorizar
  }
 
 

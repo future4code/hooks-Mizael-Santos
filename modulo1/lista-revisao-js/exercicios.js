@@ -121,8 +121,9 @@ function retornaChamadaDeFilme(filme) {
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
- 
-   
+    let obj = {...pessoa , nome: "ANÔNIMO"}
+    return obj 
+
 }
 
 // EXERCÍCIO 13A

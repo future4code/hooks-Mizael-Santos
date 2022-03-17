@@ -99,8 +99,19 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
-
+    let segunMaiorESegunMenor  = [];
+    const arrayCrescente = array.sort((a, b) => {
+        if (a > b) return 1;
+        if (a < b) return -1;
+ 
+        return 0;
+    }) 
+ 
+    segunMaiorESegunMenor.push(arrayCrescente[arrayCrescente.length - 2])
+    segunMaiorESegunMenor.push(arrayCrescente[1])
+ 
+    return segunMaiorESegunMenor
+ 
 }
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {

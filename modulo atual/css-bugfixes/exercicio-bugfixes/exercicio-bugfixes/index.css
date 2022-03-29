@@ -36,7 +36,7 @@ div>p:first-child {
 }
 
 div img {
-    background: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
 }
 
 div > a{
@@ -62,7 +62,8 @@ div > a{
 }
 
 .icone {
-    height: 15px;
+    height: 16px;
+    width: 16px;
 }
 
 
@@ -114,7 +115,7 @@ td button {
     width: 150px;
     height: 30px;
     border-radius: 5px;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .container-do-search {

@@ -135,6 +135,7 @@ div > input{
     border-left: none;
     border-right: none;
     border-top: none;
+    outline: 0;
 }
 
 

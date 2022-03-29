@@ -23,7 +23,7 @@ input {
 }
 
 button:focus {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 img {
@@ -109,6 +109,8 @@ div:last-child {
 table {
     width: 60%;
     text-align: center;
+    display: relative;
+    margin: 0 auto;
 }
 
 td button {
@@ -128,6 +130,13 @@ button:hover{
     height: 100px;
 }
 
+div > input{
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
 
 #back-button {
     background-color: white;
@@ -140,5 +149,5 @@ button:hover{
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #5e4e1d
 }

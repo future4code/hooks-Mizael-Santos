@@ -19,7 +19,7 @@ class App extends React.Component {
     fotoUsuario: 'https://saibama.is/wp-content/uploads/2020/12/fases-da-lua-nos-negocios-15531.jpg',
     fotoPost: 'https://th.bing.com/th/id/OIP.N_STPtWWFUoS7tC4RI2fpgHaHa?pid=ImgDet&w=736&h=736&rs=1' },
     {
-      nomeUsuario: 'bia',
+      nomeUsuario: 'jorge',
       fotoUsuario: 'https://th.bing.com/th/id/R.9f3df38816b146fdd1a14e40de8cd252?rik=uTQw%2fleVrXx3tw&pid=ImgRaw&r=0',
       fotoPost: 'https://th.bing.com/th/id/OIP.FEgz4gv9z3D_iQZa0lCiRgHaFj?pid=ImgDet&rs=1'
     }

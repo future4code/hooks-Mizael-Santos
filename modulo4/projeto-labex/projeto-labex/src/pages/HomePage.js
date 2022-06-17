@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export const Global = styled.div`
   * {
@@ -68,17 +69,30 @@ const Button2 = styled.div`
   align-items: center;
 `;
 
-function HomePage() {
+
+  const HomePage = () => {
+    const navigate = useNavigate()
+
+    const goToListTrips = () => {
+      navigate("/ListTrips")
+    }
+
+    const goToLoginAdmin = () => {
+      navigate("/Login")
+    }
+
+
+
   return (
     <AreaHome>
       <H1>LabeX</H1>
 
       <Button1>
-        <ButtonFilho1>Viagens</ButtonFilho1>
+        <ButtonFilho1 onClick={goToListTrips}>Lista De Viagens</ButtonFilho1>
       </Button1>
 
       <Button2>
-        <ButtonFilho2>Area Admin</ButtonFilho2>
+        <ButtonFilho2 onClick={goToLoginAdmin}>Area Admin</ButtonFilho2>
       </Button2>
     </AreaHome>
   );

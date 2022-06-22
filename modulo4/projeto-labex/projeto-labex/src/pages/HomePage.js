@@ -69,19 +69,16 @@ const Button2 = styled.div`
   align-items: center;
 `;
 
+const HomePage = () => {
+  const navigate = useNavigate();
 
-  const HomePage = () => {
-    const navigate = useNavigate()
+  const goToListTrips = () => {
+    navigate("/ListTrips");
+  };
 
-    const goToListTrips = () => {
-      navigate("/ListTrips")
-    }
-
-    const goToLoginAdmin = () => {
-      navigate("/Login")
-    }
-
-
+  const goToLoginAdmin = () => {
+    navigate("/Login");
+  };
 
   return (
     <AreaHome>
@@ -96,6 +93,6 @@ const Button2 = styled.div`
       </Button2>
     </AreaHome>
   );
-}
+};
 
 export default HomePage;

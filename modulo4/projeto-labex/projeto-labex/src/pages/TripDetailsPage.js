@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useProtectedPage } from "../hooks/useProtectedPage";
 import styled from "styled-components";
-
+import axios from "axios";
 
 const AreaHome = styled.div`
   display: flex;
@@ -53,48 +55,61 @@ const Button2 = styled.div`
   align-items: center;
 `;
 
+const TripDetailsPage = () => {
+  const navigate = useNavigate();
 
+  useProtectedPage();
 
+  const goToCreateTrip = () => {
+    navigate("/CreateTrip");
+  };
 
+  const goBack = () => {
+    navigate(-1);
+  };
 
-    const TripDetailsPage = () => {
-        const navigate = useNavigate()
-    
-        const goToCreateTrip = () => {
-          navigate("/CreateTrip")
-        }
+  // useEffect de para pegar o token e trips
 
-        const goBack = () => {
-            navigate(-1)
-          }
+  useEffect(() => {
+    const URL =
+      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trip/GKtVO4lx6k08J6xQju7E";
 
+    const headers = {
+      headers: {
+        auth: localStorage.getItem("token"),
+      },
+    };
+    console.log(headers);
 
+    axios
+      .get(URL, headers)
+      .then((response) => {
+        console.log(response.data.trip);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }, []);
 
-    return (
+  return (
+    <AreaHome>
+      <H1>Pagina TripDetailsPage!</H1>
 
-        <AreaHome>
-        <H1>Pagina TripDetailsPage!</H1>
-  
-        <Button1>
-          <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>
-        </Button1>
-  
-        <Button2>
-          <ButtonFilho2 onClick={goToCreateTrip}>Criar uma Viagem</ButtonFilho2>
-        </Button2>
-      </AreaHome>
+      <Button1>
+        <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>
+      </Button1>
 
+      <Button2>
+        <ButtonFilho2 onClick={goToCreateTrip}>Criar uma Viagem</ButtonFilho2>
+      </Button2>
+    </AreaHome>
 
-
-
-
-
-        // <div>
-        //     <> Pagina TripDetailsPage!</>
-        //     <button onClick={goBack}>Voltar</button>
-        //     <button onClick={goToCreateTrip}>Criar uma Viagem</button>
-        // </div>
-    )
-}
+    // <div>
+    //     <> Pagina TripDetailsPage!</>
+    //     <button onClick={goBack}>Voltar</button>
+    //     <button onClick={goToCreateTrip}>Criar uma Viagem</button>
+    // </div>
+  );
+};
 
 export default TripDetailsPage;

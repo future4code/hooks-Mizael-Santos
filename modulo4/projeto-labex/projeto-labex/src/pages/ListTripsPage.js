@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-
-
 const AreaHome = styled.div`
   display: flex;
   justify-content: center;
@@ -65,30 +63,26 @@ const ListTripsPage = () => {
     navigate("/ApplicationForm");
   };
 
-
-  
-
   return (
-
     <AreaHome>
-    <H1> Pagina ListTripsPage!</H1>
+      <H1> Pagina ListTripsPage!</H1>
 
-    <Button1>
-      <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>
-    </Button1>
+      <Button1>
+        <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>
+      </Button1>
 
-    <Button2>
-      <ButtonFilho2 onClick={goToForm}>Ir Para Cadastro</ButtonFilho2>
-    </Button2>
-  </AreaHome>
+      <Button2>
+        <ButtonFilho2 onClick={goToForm}>Ir Para Cadastro</ButtonFilho2>
+      </Button2>
+    </AreaHome>
 
-// jeito que tava abaixo
+    // jeito que tava abaixo
 
     // <div>
     //   <> Pagina ListTripsPage!</>
     //   <button onClick={goBack}>Voltar</button>
     //   <button onClick={goToForm}>Ir Para Cadastro</button>
-  //   // </div>
+    //   // </div>
   );
 };
 

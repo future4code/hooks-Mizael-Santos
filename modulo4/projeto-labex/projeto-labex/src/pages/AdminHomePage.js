@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-
 const AreaHome = styled.div`
   display: flex;
   justify-content: center;
@@ -53,45 +52,41 @@ const Button2 = styled.div`
   align-items: center;
 `;
 
+const AdminHomePage = () => {
+  const navigate = useNavigate();
 
-    const AdminHomePage = () => {
-        const navigate = useNavigate()
-    
-        const goToTripDetails = () => {
-          navigate("/TripDetails")
-        }
-        const goBack = () => {
-            navigate(-1)
-          }
+  const goToTripDetails = () => {
+    navigate("/TripDetails");
+  };
+  const goBack = () => {
+    navigate(-1);
+  };
 
-
-
-    return (
-
-      <AreaHome>
+  return (
+    <AreaHome>
       <H1>Pagina AdminHomePage!</H1>
+
+      <p>ESSA PAGINA É PARA = VER A LISTA DE VIAGENS E PODER DELETALAS</p>
 
       <Button1>
         <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>
       </Button1>
 
       <Button2>
-        <ButtonFilho2 onClick={goToTripDetails}>Ver Detalhes De Viagem</ButtonFilho2>
+        <ButtonFilho2 onClick={goToTripDetails}>
+          Ver Detalhes De Viagem
+        </ButtonFilho2>
       </Button2>
     </AreaHome>
   );
 
-
   // jeito que tava abaixo
 
-        // <div>
-        //      <> Pagina AdminHomePage!</>
-        //      <button onClick={goBack}>Voltar</button>
-        //      <button onClick={goToTripDetails}>Ver Detalhes De Viagem</button>
-        // </div>
-    
-    
-
-}
+  // <div>
+  //      <> Pagina AdminHomePage!</>
+  //      <button onClick={goBack}>Voltar</button>
+  //      <button onClick={goToTripDetails}>Ver Detalhes De Viagem</button>
+  // </div>
+};
 
 export default AdminHomePage;

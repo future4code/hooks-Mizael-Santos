@@ -56,7 +56,7 @@ const AdminHomePage = () => {
   const navigate = useNavigate();
 
   const goToTripDetails = () => {
-    navigate("/TripDetails");
+    navigate("/TripDetails/:id");
   };
   const goBack = () => {
     navigate(-1);

@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const AreaHome = styled.div`
@@ -121,6 +123,102 @@ const Input4 = styled.input`
 `;
 
 const ApplicationFormPage = () => {
+  const [nome, setNome] = useState("");
+
+  const [idade, setIdade] = useState("");
+
+  const [textoDescritivo, setTextoDescritivo] = useState("");
+
+  const [profissao, setProfissao] = useState("");
+
+  const [escolhaPais, setEscolhaPais] = useState("");
+
+  //path params
+  const pathParams = useParams();
+
+  const onChangeMudaNome = (event) => {
+    setNome(event.target.value);
+  };
+
+  const onChangeMudaIdade = (event) => {
+    setIdade(event.target.value);
+  };
+
+  const onChangeMudaTextoDescritivo = (event) => {
+    setTextoDescritivo(event.target.value);
+  };
+
+  const onChangeMudaProfissao = (event) => {
+    setProfissao(event.target.value);
+  };
+
+  const onChangeMudaPais = (event) => {
+    setEscolhaPais(event.target.value);
+  };
+
+  const pegarDadosForm = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/mizael-costa-santos-hooks/trips/${id}/apply`;
+
+    console.log(url);
+
+    const body = {
+      name: nome,
+      age: idade,
+      applicationText: textoDescritivo,
+      profession: profissao,
+      country: escolhaPais,
+    };
+
+    console.log(body);
+
+    axios
+      .post(url, body, { headers: { "Content-Type": "application/json" } })
+      .then((response) => {
+        console.log(response);
+        alert("Você foi cadastrado com sucesso! Seja Bem-Vindo Abordo!")
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(id);
+      });
+  };
+
+  //funcao que faz mostrar paises no select
+
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://gist.githubusercontent.com/jonasruth/61bde1fcf0893bd35eea/raw/10ce80ddeec6b893b514c3537985072bbe9bb265/paises-gentilicos-google-maps.json"
+      )
+      .then((res) => {
+        setCountries(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const mostraPaises = countries.map((paises) => {
+    return (
+      <option value={paises.nome_pais} key={paises.nome_pais}>
+        {paises.nome_pais}
+      </option>
+    );
+  });
+
+  //funcao que faz mostrar as viagens no select
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:mizael-costa-santos-hooks/trips"
+  //     )
+  //     .then((res) => {
+  //       console.log(res.data.trips);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -132,27 +230,40 @@ const ApplicationFormPage = () => {
       {/* <H1>Pagina ApplicationFormPage!</H1> */}
       <H2>Cadastra-se para uma viagem</H2>
       <Form>
-        <Select>
-          <option value disabled selected>
-            Escolha uma viagem
-          </option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-        </Select>
-        <Input1 placeholder="Nome" name="name" />
-        <Input2 placeholder="idade" type="number" name="age" />
-        <Input3 placeholder="Texto de candidatura" name="applicationText" />
-        <Input4 placeholder="Profissão" name="profession" />
-        <Select>
-          <option value disabled selected>
+        <Input1
+          placeholder="Nome"
+          name="name"
+          onChange={onChangeMudaNome}
+          required
+        />
+
+        <Input2
+          placeholder="idade"
+          type="number"
+          name="age"
+          onChange={onChangeMudaIdade}
+          required
+        />
+
+        <Input3
+          placeholder="Texto de candidatura"
+          name="applicationText"
+          onChange={onChangeMudaTextoDescritivo}
+          required
+        />
+
+        <Input4
+          placeholder="Profissão"
+          name="profession"
+          onChange={onChangeMudaProfissao}
+          required
+        />
+
+        <Select value={escolhaPais} onChange={onChangeMudaPais}>
+          <option value={""} onChange={onChangeMudaPais} required>
             Escolha uma país
           </option>
-          <option>BR</option>
-          <option>EUA</option>
-          <option>RUS</option>
-          <option>ARG</option>
+          {mostraPaises}
         </Select>
       </Form>
 
@@ -161,7 +272,9 @@ const ApplicationFormPage = () => {
       </Button1>
 
       <Button2>
-        <ButtonFilho2>Enviar</ButtonFilho2>
+        <ButtonFilho2 onClick={() => pegarDadosForm(pathParams.id)}>
+          Enviar
+        </ButtonFilho2>
       </Button2>
     </AreaHome>
 

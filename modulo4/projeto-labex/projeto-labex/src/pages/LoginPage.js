@@ -101,7 +101,7 @@ const LoginPage = () => {
     navigate(-1);
   };
 
-  //
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -143,14 +143,18 @@ const LoginPage = () => {
       <Input1
         placeholder="Email"
         type="email"
+        required
         value={email}
         onChange={onChangeEmail}
+       
       />
       <Input2
         placeholder="Senha"
         type="password"
+        required
         value={password}
         onChange={onChangePassword}
+      
       />
       <Button1>
         <ButtonFilho1 onClick={goBack}>Voltar</ButtonFilho1>

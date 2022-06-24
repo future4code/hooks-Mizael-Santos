@@ -16,11 +16,11 @@ function Router(){
           <Routes>
             <Route index element={<HomePage/>} />
             <Route path="ListTrips" element={<ListTripsPage/>}/>
-            <Route path="ApplicationForm" element={<ApplicationFormPage/>}/>
+            <Route path="ApplicationForm/:id" element={<ApplicationFormPage/>}/>
             <Route path="AdminHome" element={<AdminHomePage/>}/>
             <Route path="CreateTrip" element={<CreateTripPage/>}/>
             <Route path="Login" element={<LoginPage/>}/>
-            <Route path="TripDetails" element={<TripDetailsPage/>}/>
+            <Route path="TripDetails/:id" element={<TripDetailsPage/>}/>
 
           </Routes>
         </BrowserRouter>

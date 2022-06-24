@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from "../hooks/useProtectedPage";
 import styled from "styled-components";
 import axios from "axios";
@@ -56,6 +56,8 @@ const Button2 = styled.div`
 `;
 
 const TripDetailsPage = () => {
+  const pathParams = useParams();
+
   const navigate = useNavigate();
 
   useProtectedPage();
@@ -71,8 +73,7 @@ const TripDetailsPage = () => {
   // useEffect de para pegar o token e trips
 
   useEffect(() => {
-    const URL =
-      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trip/GKtVO4lx6k08J6xQju7E";
+    const URL = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/mizael-costa-santos-hooks/trip/${pathParams.id}`;
 
     const headers = {
       headers: {

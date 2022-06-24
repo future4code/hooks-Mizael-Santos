@@ -184,7 +184,7 @@ const CreateTripPage = () => {
 
 
   const pegarDadosCriacao = (id) => {
-    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX//trips"
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/mizael-costa-santos-hooks/trips"
 
     console.log(url);
 
@@ -200,8 +200,7 @@ const CreateTripPage = () => {
 
     const headers = {
       headers: {
-        Auth: localStorage.getItem("token"),
-        headers: { "Content-Type": "application/json" }
+        auth: localStorage.getItem("token"),
       },
     };
 
@@ -209,6 +208,7 @@ const CreateTripPage = () => {
       .post(url, body, headers )
       .then((response) => {
         console.log(response);
+        alert("Viagem Criada Com Sucesso!")
       })
       .catch((error) => {
         console.log(error);
@@ -216,34 +216,7 @@ const CreateTripPage = () => {
       });
   };
 
-  const [planets, setPlanets] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://gist.githubusercontent.com/jonasruth/61bde1fcf0893bd35eea/raw/10ce80ddeec6b893b514c3537985072bbe9bb265/paises-gentilicos-google-maps.json"
-      )
-      .then((res) => {
-        setPlanets(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  const mostraPlanets = planets.map((planets) => {
-    return (
-      <option value={planets.nome_pais} key={planets.nome_pais}>
-        {planets.nome_pais}
-      </option>
-    );
-  });
-
   
-
-
-
-
-
-
 
   const navigate = useNavigate();
 
@@ -257,7 +230,7 @@ const CreateTripPage = () => {
 
   return (
     <AreaHome>
-      <H1>Pagina CreateTripPage!</H1>
+      <H1>Criar Viagem</H1>
 
       <Form>
         <Input1 
@@ -266,10 +239,12 @@ const CreateTripPage = () => {
          onChange={onChangeMudaNome} 
          required />
         <Select value={escolhaPlaneta} onChange={onChangeMudaPlaneta}>
-          <option value={""} onChange={onChangeMudaPlaneta}>
-            Select planet
-          </option>
-          {mostraPlanets}
+         <option>Select Planet</option>
+         <option>Terra</option>
+         <option>Mercurio</option>
+         <option>Jupiter</option>
+         <option>Plutao</option>
+         <option>Saturno</option>
         </Select>
         <Input2 
         placeholder="date" 

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export const Global = styled.div`
   * {
@@ -22,13 +23,31 @@ const AreaHome = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
+  box-shadow: rgba(0, 0, 255) 0px 10px 20px, rgba(128, 0, 128) 0px 6px 6px;
+  width: 600px;
+  height: 750px;
+  margin: 400px;
+  text-align: center;
+  padding-bottom: 60px;
+  `;
+
+const Img = styled.img`
+    width: 100px;
+    height: 100px;
+    
+`
 
 const H1 = styled.h1`
   font-size: 60px;
   font-family: sans-serif;
   padding-bottom: 50px;
-  padding-top: 200px;
+`;
+
+const H3 = styled.h1`
+  font-size: 30px;
+  font-family: sans-serif;
+  padding-bottom: 50px;
+  padding-top: 2px;
 `;
 
 const ButtonFilho1 = styled.button`
@@ -68,20 +87,31 @@ const Button2 = styled.div`
   align-items: center;
 `;
 
-function HomePage() {
+const HomePage = () => {
+  const navigate = useNavigate();
+
+  const goToListTrips = () => {
+    navigate("/ListTrips");
+  };
+
+  const goToLoginAdmin = () => {
+    navigate("/Login");
+  };
+
   return (
     <AreaHome>
-      <H1>LabeX</H1>
+      <H1>LabeX <Img src="https://img.icons8.com/nolan/344/launched-rocket.png" alt="foguete"/></H1>
+      <H3>Tenha uma ótima viagem!</H3>
 
       <Button1>
-        <ButtonFilho1>Viagens</ButtonFilho1>
+        <ButtonFilho1 onClick={goToListTrips}>Lista De Viagens</ButtonFilho1>
       </Button1>
 
       <Button2>
-        <ButtonFilho2>Area Admin</ButtonFilho2>
+        <ButtonFilho2 onClick={goToLoginAdmin}>Area Admin</ButtonFilho2>
       </Button2>
     </AreaHome>
   );
-}
+};
 
 export default HomePage;

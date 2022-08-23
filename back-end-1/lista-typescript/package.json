@@ -1,5 +1,6 @@
 {
   "name": "src",
+  "name": "lista-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +11,17 @@
     "start3": "tsc && node ./build/exeLista3.js",
     "start4": "tsc && node ./build/exeLista4.js",
     "start5": "tsc && node ./build/exeLista5.js",
-    "start6": "tsc && node ./build/exeLista6.js"
-
+    "start6": "tsc && node ./build/exeLista6.js,
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
+    "start": "tsc && node ./build/exeLista3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
 }

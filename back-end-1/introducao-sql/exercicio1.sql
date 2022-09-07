@@ -1,0 +1,7 @@
+CREATE TABLE funcionarios (
+	id VARCHAR(100) PRIMARY KEY NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+ );
+
+ 
